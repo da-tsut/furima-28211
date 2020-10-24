@@ -27,21 +27,19 @@ Things you may want to cover:
 # テーブル設計
 
 ## users table
-| Column           | Type       | Options                               |
-| ---------------- | ---------- | ------------------------------------- |
-| nickname         | string     | null: false                           |
-| password         | string     | null: false                           |
-| email            | string     | null: false, unique: true, index:true |
-| first_name       | string     | null:false                            |
-| family_name      | string     | null:false                            |
-| first_name_kana  | string     | null:false                            |
-| family_name_kana | string     | null:false                            |
-| birth_year       | date       | null:false                            |
-| birth_month      | date       | null:false                            |
-| birth_day        | date       | null:false                            |
-| introduction     | text       |                                       |
-| avatar           | string     |                                       |
-| user             | references | null: false, foreign_key: true        |
+| Column               | Type       | Options                               |
+| ---------------- ----| ---------- | ------------------------------------- |
+| nickname             | string     | null: false                           |
+| password             | string     | null: false                           |
+| email                | string     | null: false, unique: true, index:true |
+| first_name           | string     | null:false                            |
+| family_name          | string     | null:false                            |
+| first_name_kana      | string     | null:false                            |
+| family_name_kana     | string     | null:false                            |
+| birth_year_month_day | date       | null:false                            |
+| introduction         | text       |                                       |
+| avatar               | string     |                                       |
+| user                 | references | null: false, foreign_key: true        |
 
 ### Association
 - has_many :comments, dependent: :destroy
@@ -59,51 +57,20 @@ Things you may want to cover:
 
 
 
-## sns_authentications table
-| Column   | Type       | Options                        |
-| ---------| ---------- | ------------------------------ |
-| provider | string     | null: false                    |
-| uid      | string     | null: false, unique: true      |
-| token    | text       |                                |
-| user     | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :user
-
-
-
 ## sending_destinations table
-| Column                       | Type       | Options                        |
-| ---------------------------- | ---------- | ------------------------------ |
-| destination_first_name       | string     | null: false                    |
-| destination_family_name      | string     | null: false                    |
-| destination_first_name_kana  | string     | null: false                    |
-| destination_family_name_kana | string     | null: false                    |
-| post_code                    | string     | null:false                     |
-| prefecture_code              | integer    | null:false                     |
-| city                         | string     | null:false                     |
-| house_number                 | string     | null:false                     |
-| building_name                | string     |                                |
-| phone_number                 | string     | unique: true                   |
-| user                         | references | null: false, foreign_key: true |
+| Column          | Type       | Options                        |
+| --------------- | ---------- | ------------------------------ |
+| post_code       | string     | null:false                     |
+| prefecture_code | integer    | null:false                     |
+| city            | string     | null:false                     |
+| house_number    | string     | null:false                     |
+| building_name   | string     |                                |
+| phone_number    | string     | unique: true                   |
+| user            | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
 - belongs_to_active_hash :jp_prefecture
-
-
-
-## credit_cards table
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| card_number      | integer    | null:false, unique: true       |
-| expiration_year  | integer    | null:false                     |
-| expiration_month | integer    | null:false                     |
-| security_code    | integer    | null:false                     |
-| user             | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to:user
 
 
 
@@ -139,15 +106,15 @@ Things you may want to cover:
 | name             | string     | null: false                    |
 | introduction     | text       | null: false                    |
 | price            | integer    | null: false                    |
-| brand            | references | foreign_key: true              |
-| item_condition   | references | null: false, foreign_key: true |
-| postage_payer    | references | null: false, foreign_key: true |
+| brand            | references |                                |
+| item_condition   | integer    | null: false                    |
+| postage_payer    | integer    | null: false                    |
 | prefecture_code  | integer    | null: false                    |
-| size             | references | null: false, foreign_key: true |
-| preparation_day  | references | null: false, foreign_key: true |
-| postage_type     | references | null: false, foreign_key: true |
-| item_img         | references | null: false, foreign_key: true |
-| category         | references | null: false, foreign_key: true |
+| size             | integer    | null: false                    |
+| preparation_day  | integer    | null: false                    |
+| postage_type     | integer    | null: false                    |
+| item_img         | references | null: false                    |
+| category         | references | null: false                    |
 | trading_status   | enum       | null: false                    |
 | seller           | references | null: false, foreign_key: true |
 | buyer            | references | foreign_key: true              |
