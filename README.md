@@ -58,15 +58,15 @@ Things you may want to cover:
 
 
 ## sending_destinations table
-| Column          | Type       | Options                        |
-| --------------- | ---------- | ------------------------------ |
-| post_code       | string     | null:false                     |
-| prefecture_code | integer    | null:false                     |
-| city            | string     | null:false                     |
-| house_number    | string     | null:false                     |
-| building_name   | string     |                                |
-| phone_number    | string     | unique: true                   |
-| user            | references | null: false, foreign_key: true |
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| post_code_id       | string     | null:false                     |
+| prefecture_code_id | integer    | null:false                     |
+| city               | string     | null:false                     |
+| house_number       | string     | null:false                     |
+| building_name      | string     |                                |
+| phone_number       | string     | null:false                     |
+| user               | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
@@ -106,18 +106,11 @@ Things you may want to cover:
 | name             | string     | null: false                    |
 | introduction     | text       | null: false                    |
 | price            | integer    | null: false                    |
-| brand            | references |                                |
 | item_condition   | integer    | null: false                    |
 | postage_payer    | integer    | null: false                    |
 | prefecture_code  | integer    | null: false                    |
-| size             | integer    | null: false                    |
-| preparation_day  | integer    | null: false                    |
-| postage_type     | integer    | null: false                    |
-| item_img         | references | null: false                    |
 | category         | references | null: false                    |
 | trading_status   | enum       | null: false                    |
-| seller           | references | null: false, foreign_key: true |
-| buyer            | references | foreign_key: true              |
 | deal_closed_date | timestamp  |                                |
 
 ### Association
@@ -126,29 +119,21 @@ Things you may want to cover:
 - has_many :item_imgs, dependent: :destroy
 - has_one :user_evaluation
 - belongs_to :category
-- belongs_to_active_hash :size
-- belongs_to_active_hash :item_condition
-- belongs_to_active_hash :postage_payer
-- belongs_to_active_hash :preparation_day
-- belongs_to_active_hash :postage_type
-- belongs_to :brand
-- belongs_to :seller, class_name: "User"
-- belongs_to :buyer, class_name: "User"
 - belongs_to_active_hash :jp_prefecture
 
 
 
-## purchase_management table
+## item_purchase table
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | management       | references | null:false, foreign_key: true  |
-| item_img         | references |  null:false, foreign_key: true |
-| seller           | references | null: false, foreign_key: true |
-| buyer            | references | foreign_key: true              |
+| user_id          | string     | null:false                     |
+| item_id          | string     | null: false                    |
 
 ## Association
-- belongs_to :seller, class_name: "User"
-- belongs_to :buyer, class_name: "User"
+- belongs_to :item_purchase
+- belongs_to :user
+- belongs_to :item
 
 
 
