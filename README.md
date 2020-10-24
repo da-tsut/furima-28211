@@ -60,7 +60,6 @@ Things you may want to cover:
 ## sending_destinations table
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| post_code_id       | string     | null:false                     |
 | prefecture_code_id | integer    | null:false                     |
 | city               | string     | null:false                     |
 | house_number       | string     | null:false                     |
@@ -109,14 +108,12 @@ Things you may want to cover:
 | item_condition   | integer    | null: false                    |
 | postage_payer    | integer    | null: false                    |
 | prefecture_code  | integer    | null: false                    |
-| category         | references | null: false                    |
-| trading_status   | enum       | null: false                    |
-| deal_closed_date | timestamp  |                                |
+| category         | integer    | null: false                    |
 
 ### Association
 - has_many :comments, dependent: :destroy
 - has_many :favorites
-- has_many :item_imgs, dependent: :destroy
+- has_many :item_imgs, dependent: :destroy 
 - has_one :user_evaluation
 - belongs_to :category
 - belongs_to_active_hash :jp_prefecture
@@ -124,14 +121,12 @@ Things you may want to cover:
 
 
 ## item_purchase table
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| management       | references | null:false, foreign_key: true  |
-| user_id          | string     | null:false                     |
-| item_id          | string     | null: false                    |
+| Column  | Type    | Options                        |
+| ------- | ------- | ------------------------------ |
+| user_id | integer | null: false, foreign_key: true |
+| item_id | integer | null: false, foreign_key: true |
 
 ## Association
-- belongs_to :item_purchase
 - belongs_to :user
 - belongs_to :item
 
@@ -150,7 +145,7 @@ Things you may want to cover:
 ## item_imgs table
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
-| url    | string     | null:false                     |
+| url    | string     | null: false                    |
 | item   | references | null: false, foreign_key: true |
 
 ### Association
