@@ -28,7 +28,7 @@ Things you may want to cover:
 
 ## users table
 | Column               | Type       | Options                               |
-| ---------------- ----| ---------- | ------------------------------------- |
+| -------------------- | ---------- | ------------------------------------- |
 | nickname             | string     | null: false                           |
 | password             | string     | null: false                           |
 | email                | string     | null: false, unique: true, index:true |
@@ -41,19 +41,18 @@ Things you may want to cover:
 ### Association
 - has_many :comments, dependent: :destroy
 - has_many :favorites, dependent: :destroy
-- has_many :seller_items, foreign_key: "seller_id", class_name: "items"
-- has_many :buyer_items, foreign_key: "buyer_id", class_name: "items"
 - has_many :item_purchases
 - has_one :profile, dependent: :destroy
 - has_one :sns_authentication, dependent: :destroy
 - has_one :credit_card, dependent: :destroy
 
 
+
 ## sending_destinations table
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | postal_code        | string     | null:false                     |
-| prefecture_code_id | integer    | null:false                     |
+| prefecture_code_id | integer    | null: false, foreign_key: true |
 | city               | string     | null:false                     |
 | house_number       | string     | null:false                     |
 | building_name      | string     |                                |
@@ -67,26 +66,26 @@ Things you may want to cover:
 
 
 ## items table
-| Column              | Type    | Options     |
-| ------------------- | ------- | ----------- |
-| name                | string  | null: false |
-| introduction        | text    | null: false |
-| price_id            | integer | null: false |
-| item_condition_id   | integer | null: false |
-| postage_payer_id    | integer | null: false |
-| prefecture_code_id  | integer | null: false |
-| item_purchase_id    | integer | null: false |
-| price_preservation  | integer | null: false |
+| Column              | Type    | Options                        |
+| ------------------- | ------- | ------------------------------ |
+| name                | string  | null: false                    |
+| introduction        | text    | null: false                    |
+| price_id            | integer | null: false, foreign_key: true |
+| item_condition_id   | integer | null: false, foreign_key: true |
+| postage_payer_id    | integer | null: false, foreign_key: true |
+| prefecture_code_id  | integer | null: false, foreign_key: true |
+| item_purchase_id    | integer | null: false, foreign_key: true |
+| price_preservation  | integer | null: false                    |
 
 ### Association
 - has_many :comments, dependent: :destroy
 - has_many :favorites
-- has_many :item_imgs, dependent: :destroy
-- has_many :item_purchases
+- has_many :users
+- has_one :item_purchase
 - belongs_to_active_hash :jp_prefecture
 
 
-## item_purchase table
+## items_purchase table
 | Column  | Type    | Options                        |
 | ------- | ------- | ------------------------------ |
 | user_id | integer | null: false, foreign_key: true |
@@ -95,7 +94,7 @@ Things you may want to cover:
 ## Association
 - belongs_to :item
 - belongs_to :user
-- has_one : sending_destinations
+- has_one : sending_destination
 
 
 
@@ -106,17 +105,6 @@ Things you may want to cover:
 
 ### Association
 - has_many :items
-
-
-
-## item_imgs table
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| url    | string     | null: false                    |
-| item   | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :item
 
 
 
