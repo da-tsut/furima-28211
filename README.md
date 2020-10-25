@@ -37,29 +37,22 @@ Things you may want to cover:
 | first_name_kana      | string     | null:false                            |
 | family_name_kana     | string     | null:false                            |
 | birth_year_month_day | date       | null:false                            |
-| introduction         | text       |                                       |
-| avatar               | string     |                                       |
-| user                 | references | null: false, foreign_key: true        |
 
 ### Association
 - has_many :comments, dependent: :destroy
 - has_many :favorites, dependent: :destroy
-- has_many :todo_lists
-- has_many :user_evaluations
 - has_many :seller_items, foreign_key: "seller_id", class_name: "items"
 - has_many :buyer_items, foreign_key: "buyer_id", class_name: "items"
-- has_one :point
 - has_one :profile, dependent: :destroy
 - has_one :sns_authentication, dependent: :destroy
-- has_one :sending_destination, dependent: :destroy
 - has_one :credit_card, dependent: :destroy
-- belongs_to :user
-
+- has_one :item_purchase
 
 
 ## sending_destinations table
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
+| postal_code        | string     | null:false                     |
 | prefecture_code_id | integer    | null:false                     |
 | city               | string     | null:false                     |
 | house_number       | string     | null:false                     |
@@ -73,50 +66,23 @@ Things you may want to cover:
 
 
 
-## points table
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| point  | integer    |                                |
-| user   | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to:user
-
-
-
-## user_evaluations table
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| review     | text       | null: false                    |
-| user       | references | null: false, foreign_key: true |
-| item       | references | null: false, foreign_key: true |
-| evaluation | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to_active_hash :evaluation
-- belongs_to :user
-- belongs_to :item
-
-
-
 ## items table
-| Column           | Type       | Options                        |
-| ---------------- | ---------- | ------------------------------ |
-| name             | string     | null: false                    |
-| introduction     | text       | null: false                    |
-| price            | integer    | null: false                    |
-| item_condition   | integer    | null: false                    |
-| postage_payer    | integer    | null: false                    |
-| prefecture_code  | integer    | null: false                    |
-| category         | integer    | null: false                    |
+| Column              | Type    | Options     |
+| ------------------- | ------- | ----------- |
+| name                | string  | null: false |
+| introduction        | text    | null: false |
+| price_id            | integer | null: false |
+| item_condition_id   | integer | null: false |
+| postage_payer_id    | integer | null: false |
+| prefecture_code_id  | integer | null: false |
+| item_purchase_id    | integer | null: false |
 
 ### Association
 - has_many :comments, dependent: :destroy
 - has_many :favorites
 - has_many :item_imgs, dependent: :destroy 
-- has_one :user_evaluation
-- belongs_to :category
 - belongs_to_active_hash :jp_prefecture
+- has_one :item_purchase
 
 
 
@@ -127,7 +93,6 @@ Things you may want to cover:
 | item_id | integer | null: false, foreign_key: true |
 
 ## Association
-- belongs_to :user
 - belongs_to :item
 
 
@@ -176,14 +141,3 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :item
-
-
-
-## categories table
-| Column   | Type   | Options    |
-| -------- | ------ | ---------- |
-| name     | string | null:false |
-| ancestry | string | null:false |
-
-### Association
-- has_many :items
