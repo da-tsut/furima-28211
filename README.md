@@ -43,7 +43,7 @@ Things you may want to cover:
 - has_many :favorites, dependent: :destroy
 - has_many :seller_items, foreign_key: "seller_id", class_name: "items"
 - has_many :buyer_items, foreign_key: "buyer_id", class_name: "items"
-- has_many :item_purchase
+- has_many :item_purchases
 - has_one :profile, dependent: :destroy
 - has_one :sns_authentication, dependent: :destroy
 - has_one :credit_card, dependent: :destroy
@@ -58,10 +58,10 @@ Things you may want to cover:
 | house_number       | string     | null:false                     |
 | building_name      | string     |                                |
 | phone_number       | string     | null:false                     |
-| item_purchases     | references | null: false, foreign_key: true |
+| item_purchase      | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to :item_purchases
+- belongs_to :item_purchase
 - belongs_to_active_hash :jp_prefecture
 
 
@@ -76,12 +76,13 @@ Things you may want to cover:
 | postage_payer_id    | integer | null: false |
 | prefecture_code_id  | integer | null: false |
 | item_purchase_id    | integer | null: false |
+| price_preservation  | integer | null: false |
 
 ### Association
 - has_many :comments, dependent: :destroy
 - has_many :favorites
 - has_many :item_imgs, dependent: :destroy
-- has_many :item_purchase 
+- has_many :item_purchases
 - belongs_to_active_hash :jp_prefecture
 
 
@@ -93,7 +94,7 @@ Things you may want to cover:
 
 ## Association
 - belongs_to :item
-- belongs_to :users
+- belongs_to :user
 - has_one : sending_destinations
 
 
