@@ -1,6 +1,6 @@
-<mxfile host="65bd71144e" modified="2020-10-25T05:51:23.080Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.50.1 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" etag="CJt6Rcd-aT003oqHWYF1" version="13.6.5">
+<mxfile host="65bd71144e" modified="2020-10-25T11:51:26.080Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.50.1 Chrome/83.0.4103.122 Electron/9.2.1 Safari/537.36" etag="zSP5geJLPIZHq0LRBvsB" version="13.6.5">
     <diagram id="ypBz1c1ffzM5y-je0Srr" name="ページ1">
-        <mxGraphModel dx="1161" dy="2909" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="920" dy="2497" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -9,7 +9,7 @@
                         <mxRectangle x="170" y="130" width="50" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="212" value="&lt;ul&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;has_many : comments, dependent: :destroy&lt;/li&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;has_many : favorites&lt;/li&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;has_many : item_imgs, dependent: :destroy&lt;/li&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212) ; font-family: &amp;#34;menlo&amp;#34; , &amp;#34;monaco&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; line-height: 18px&quot;&gt;&lt;span style=&quot;background-color: rgb(0 , 48 , 51)&quot;&gt;belongs_to_active_hash :jp_prefecture&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;&lt;li style=&quot;padding-top: 0px ; padding-bottom: 0px ; box-sizing: inherit ; margin: 0px&quot;&gt;has_one :item_purchase&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=#003333;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" parent="211" vertex="1">
+                <mxCell id="212" value="&lt;ul&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;has_many : comments, dependent: :destroy&lt;/li&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;has_many : favorites&lt;/li&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;has_many : item_imgs, dependent: :destroy&lt;/li&gt;&lt;li style=&quot;padding-top: 0px ; padding-bottom: 0px ; box-sizing: inherit ; margin: 0px&quot;&gt;has_many :item_purchase&lt;/li&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;&lt;div style=&quot;color: rgb(212 , 212 , 212) ; font-family: &amp;#34;menlo&amp;#34; , &amp;#34;monaco&amp;#34; , &amp;#34;courier new&amp;#34; , monospace ; line-height: 18px&quot;&gt;&lt;span style=&quot;background-color: rgb(0 , 48 , 51)&quot;&gt;belongs_to_active_hash :jp_prefecture&lt;/span&gt;&lt;/div&gt;&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=#003333;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" parent="211" vertex="1">
                     <mxGeometry y="26" width="340" height="114" as="geometry"/>
                 </mxCell>
                 <mxCell id="213" value="" style="line;strokeWidth=2;html=1;" parent="211" vertex="1">
@@ -44,7 +44,7 @@
                         <mxRectangle x="170" y="130" width="50" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="126" value="&lt;ul&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;has_many :comments, dependent: :destroy&lt;/li&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;has_many :favorites, dependent: :destroy&lt;/li&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;has_many :seller_items, foreign_key: &quot;seller_id&quot;, class_name: &quot;items&quot;&lt;/li&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;has_many :buyer_items, foreign_key: &quot;buyer_id&quot;, class_name: &quot;items&quot;&lt;/li&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;has_one :profile, dependent: :destroy&lt;/li&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;has_one :sns_authentication, dependent: :destroy&lt;/li&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;has_one :credit_card, dependent: :destroy&lt;/li&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;has_one :item_purchase&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=#003333;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" parent="125" vertex="1">
+                <mxCell id="126" value="&lt;ul&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;has_many :comments, dependent: :destroy&lt;/li&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;has_many :favorites, dependent: :destroy&lt;/li&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;has_many :seller_items, foreign_key: &quot;seller_id&quot;, class_name: &quot;items&quot;&lt;/li&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;has_many :buyer_items, foreign_key: &quot;buyer_id&quot;, class_name: &quot;items&quot;&lt;/li&gt;&lt;li style=&quot;padding-top: 0px ; padding-bottom: 0px ; box-sizing: inherit ; margin: 0px&quot;&gt;has_many :item_purchase&lt;/li&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;has_one :profile, dependent: :destroy&lt;/li&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;has_one :sns_authentication, dependent: :destroy&lt;/li&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;has_one :credit_card, dependent: :destroy&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=#003333;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" parent="125" vertex="1">
                     <mxGeometry y="26" width="430" height="204" as="geometry"/>
                 </mxCell>
                 <mxCell id="127" value="" style="line;strokeWidth=2;html=1;" parent="125" vertex="1">
@@ -353,7 +353,7 @@
                         <mxPoint x="-368.90999999999997" y="-1393.01" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="443" value="" style="endArrow=ERone;html=1;endFill=0;startArrow=ERone;startFill=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" edge="1">
+                <mxCell id="443" value="" style="endArrow=ERone;html=1;endFill=0;startArrow=ERone;startFill=0;exitX=1.001;exitY=0.068;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1" source="162">
                     <mxGeometry width="50" height="50" relative="1" as="geometry">
                         <mxPoint x="-520" y="-820.0000000000005" as="sourcePoint"/>
                         <mxPoint x="-370" y="-820" as="targetPoint"/>
@@ -379,7 +379,7 @@
                         <mxRectangle x="170" y="130" width="50" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="456" value="&lt;ul&gt;&lt;li style=&quot;padding-top: 0px ; padding-bottom: 0px ; box-sizing: inherit ; margin: 0px&quot;&gt;belongs_to : item&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=#003333;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" parent="455" vertex="1">
+                <mxCell id="456" value="&lt;ul&gt;&lt;li style=&quot;padding-top: 0px ; padding-bottom: 0px ; box-sizing: inherit ; margin: 0px&quot;&gt;belongs_to : item&lt;/li&gt;&lt;li style=&quot;padding-top: 0px ; padding-bottom: 0px ; box-sizing: inherit ; margin: 0px&quot;&gt;belongs_to : users&lt;/li&gt;&lt;li style=&quot;padding-top: 0px ; padding-bottom: 0px ; box-sizing: inherit ; margin: 0px&quot;&gt;has_one : sending_destinations&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=#003333;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" parent="455" vertex="1">
                     <mxGeometry y="26" width="320" height="70" as="geometry"/>
                 </mxCell>
                 <mxCell id="457" value="" style="line;strokeWidth=2;html=1;" parent="455" vertex="1">
@@ -407,39 +407,39 @@
                     <mxGeometry x="-270" y="-380" width="110" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="161" value="sending_destinations" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;shadow=1;fillColor=#331A00;" parent="1" vertex="1">
-                    <mxGeometry x="-800" y="-850" width="280" height="300" as="geometry">
+                    <mxGeometry x="-800" y="-850" width="320" height="300" as="geometry">
                         <mxRectangle x="170" y="130" width="50" height="26" as="alternateBounds"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="162" value="&lt;ul&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;belongs_to :user&lt;/li&gt;&lt;li style=&quot;padding-top: 0px ; padding-bottom: 0px ; box-sizing: inherit ; margin: 0px&quot;&gt;belongs_to_active_hash :jp_prefecture&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=#003333;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" parent="161" vertex="1">
-                    <mxGeometry y="26" width="280" height="54" as="geometry"/>
+                <mxCell id="162" value="&lt;ul&gt;&lt;li style=&quot;box-sizing: inherit ; margin: 0px ; padding-top: 0px ; padding-bottom: 0px&quot;&gt;belongs_to :item_purchases&lt;/li&gt;&lt;li style=&quot;padding-top: 0px ; padding-bottom: 0px ; box-sizing: inherit ; margin: 0px&quot;&gt;belongs_to_active_hash :jp_prefecture&lt;/li&gt;&lt;/ul&gt;" style="text;strokeColor=none;fillColor=#003333;html=1;whiteSpace=wrap;verticalAlign=middle;overflow=hidden;" parent="161" vertex="1">
+                    <mxGeometry y="26" width="320" height="54" as="geometry"/>
                 </mxCell>
                 <mxCell id="163" value="" style="line;strokeWidth=2;html=1;" parent="161" vertex="1">
-                    <mxGeometry y="80" width="280" height="10" as="geometry"/>
+                    <mxGeometry y="80" width="320" height="10" as="geometry"/>
                 </mxCell>
                 <mxCell id="167" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="161" source="162" target="162" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="469" value="postal_code (string / null:false)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="161">
-                    <mxGeometry y="90" width="280" height="30" as="geometry"/>
+                <mxCell id="469" value="postal_code (string / null:false)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="161" vertex="1">
+                    <mxGeometry y="90" width="320" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="168" value="prefecture_code_id (integer / null:false)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="161" vertex="1">
-                    <mxGeometry y="120" width="280" height="30" as="geometry"/>
+                    <mxGeometry y="120" width="320" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="169" value="city (string / null:false)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="161" vertex="1">
-                    <mxGeometry y="150" width="280" height="30" as="geometry"/>
+                    <mxGeometry y="150" width="320" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="170" value="house_number (string / null:false)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="161" vertex="1">
-                    <mxGeometry y="180" width="280" height="30" as="geometry"/>
+                    <mxGeometry y="180" width="320" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="171" value="building_name (string )" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="161" vertex="1">
-                    <mxGeometry y="210" width="280" height="30" as="geometry"/>
+                    <mxGeometry y="210" width="320" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="172" value="phone_number (string / null:false)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="161" vertex="1">
-                    <mxGeometry y="240" width="280" height="30" as="geometry"/>
+                    <mxGeometry y="240" width="320" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="177" value="user (references / null:false , foreign_key:true)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="161" vertex="1">
-                    <mxGeometry y="270" width="280" height="30" as="geometry"/>
+                <mxCell id="177" value="item_purchases (references / null:false , foreign_key:true)" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="161" vertex="1">
+                    <mxGeometry y="270" width="320" height="30" as="geometry"/>
                 </mxCell>
                 <mxCell id="197" value="points" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;shadow=1;fillColor=#331A00;" parent="1" vertex="1">
                     <mxGeometry x="-630" y="-1370" width="270" height="140" as="geometry">
