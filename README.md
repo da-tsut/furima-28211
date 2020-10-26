@@ -42,9 +42,6 @@ Things you may want to cover:
 - has_many :comments, dependent: :destroy
 - has_many :favorites, dependent: :destroy
 - has_many :item_purchases
-- has_one :profile, dependent: :destroy
-- has_one :sns_authentication, dependent: :destroy
-- has_one :credit_card, dependent: :destroy
 
 
 
@@ -52,12 +49,12 @@ Things you may want to cover:
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | postal_code        | string     | null:false                     |
-| prefecture_code_id | integer    | null: false, foreign_key: true |
+| prefecture_code    | string     | null:false                     |
 | city               | string     | null:false                     |
 | house_number       | string     | null:false                     |
 | building_name      | string     |                                |
 | phone_number       | string     | null:false                     |
-| item_purchase      | references | null: false, foreign_key: true |
+| item_purchase      | string     | null:false                     |
 
 ### Association
 - belongs_to :item_purchase
@@ -70,17 +67,19 @@ Things you may want to cover:
 | ------------------- | ------- | ------------------------------ |
 | name                | string  | null: false                    |
 | introduction        | text    | null: false                    |
-| price_id            | integer | null: false, foreign_key: true |
-| item_condition_id   | integer | null: false, foreign_key: true |
-| postage_payer_id    | integer | null: false, foreign_key: true |
-| prefecture_code_id  | integer | null: false, foreign_key: true |
-| item_purchase_id    | integer | null: false, foreign_key: true |
+| price_id            | integer | null: false                    |
+| item_condition_id   | integer | null: false                    |
+| postage_payer_id    | integer | null: false                    |
+| prefecture_code_id  | integer | null: false                    |
+| item_purchase_id    | integer | null: false                    |
 | price_preservation  | integer | null: false                    |
+| users               | integer | null: false, foreign_key: true |
+
 
 ### Association
 - has_many :comments, dependent: :destroy
 - has_many :favorites
-- has_many :users
+- belongs_to :user
 - has_one :item_purchase
 - belongs_to_active_hash :jp_prefecture
 
