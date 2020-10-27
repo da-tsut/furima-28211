@@ -30,7 +30,7 @@ Things you may want to cover:
 | Column               | Type       | Options                               |
 | -------------------- | ---------- | ------------------------------------- |
 | nickname             | string     | null: false                           |
-| password             | string     | null: false                           |
+| encrypted_password   | string     | null: false                           |
 | email                | string     | null: false, unique: true, index:true |
 | first_name           | string     | null:false                            |
 | family_name          | string     | null:false                            |
@@ -48,13 +48,13 @@ Things you may want to cover:
 ## sending_destinations table
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| postal_code        | string     | null:false                     |
-| prefecture_code    | string     | null:false                     |
+| postal_code_id     | integer    | null:false                     |
+| prefecture_code_id | integer    | null:false                     |
 | city               | string     | null:false                     |
 | house_number       | string     | null:false                     |
 | building_name      | string     |                                |
 | phone_number       | string     | null:false                     |
-| item_purchase      | string     | null:false                     |
+| item_purchase_id   | integer    | null:false                     |
 
 ### Association
 - belongs_to :item_purchase
@@ -63,17 +63,17 @@ Things you may want to cover:
 
 
 ## items table
-| Column              | Type    | Options                        |
-| ------------------- | ------- | ------------------------------ |
-| name                | string  | null: false                    |
-| introduction        | text    | null: false                    |
-| price_id            | integer | null: false                    |
-| item_condition_id   | integer | null: false                    |
-| postage_payer_id    | integer | null: false                    |
-| prefecture_code_id  | integer | null: false                    |
-| item_purchase_id    | integer | null: false                    |
-| price_preservation  | integer | null: false                    |
-| users               | integer | null: false, foreign_key: true |
+| Column                | Type    | Options                        |
+| --------------------- | ------- | ------------------------------ |
+| name                  | string  | null: false                    |
+| introduction          | text    | null: false                    |
+| price_id              | integer | null: false                    |
+| item_condition_id     | integer | null: false                    |
+| postage_payer_id      | integer | null: false                    |
+| prefecture_code_id    | integer | null: false                    |
+| item_purchase_id      | integer | null: false                    |
+| price_preservation_id | integer | null: false                    |
+| users_id              | integer | null: false, foreign_key: true |
 
 
 ### Association
