@@ -33,7 +33,7 @@ RSpec.describe User, type: :model do
     end
 
     it "メールアドレスは＠を含む必要があること" do
-      @user.email = "@"
+      @user.email = "furimagmail.com"
       @user.valid?
         expect(@user.errors.full_messages).to include("メールアドレスは不正な値です")
     end
