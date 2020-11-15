@@ -4,4 +4,5 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one :item_purchase
   belongs_to_active_hash :jp_prefecture
+  has_one_attached :image
 end
