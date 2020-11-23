@@ -1,40 +1,48 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :set_item, only: [:edit, :show]
   #before_action :move_to_index, except: [:index, :show]
 
   def index
-    # binding.pry
-  #  @items = Item.all
+    @items = Item.all
   end
 
   def new
     @item = Item.new
   end
 
+    def index
+#      @item = Item.find(params[:item_id])
+      @item = @item.includes(:user)
+    end
+  
   def create
-    Item.create(item_params)
+    @item = Item.new(item_params)
+    if @item.valid? 
+       @item.save
+       redirect_to root_path
+    else
+       render :new
+    end
   end
 
-  def destroy
-    item = Item.find(params[:id])
-    item.destroy
-  end
 
-  def edit
-  end
+ # def destroy
+ #   item = Item.find(params[:id])
+ #   item.destroy
+ # end
 
-  def update
-    item = Item.find(params[:id])
-    item.update(tweet_params)
-  end
+ # def update
+ #   item = Item.find(params[:id])
+ #   item.update(item_params)
+ # end
 
-  def show
-  end
+ # def show
+ # end
 
   private
   def item_params
-    params.require(:item).permit(:content, :image).merge(user_id: current_user.id)
+    params.require(:item).permit(:image, :name, :introduction, :category_id, :item_condition_id, :postage_payer_id, :prefecture_id, :day_to_ship_id, :price).merge(user_id: current_user.id)
   end
 
   def set_item

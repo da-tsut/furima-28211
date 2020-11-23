@@ -12,5 +12,13 @@ ja:
        birth_year_month_day: 生年月日
 
      item:
-       text: テキスト
-       image: 画像
+       image: 出品画像
+       name: 商品名
+       introduction: 商品の説明
+       category: カテゴリー
+       item_condition: 商品の状態
+       postage_payer: 配送料の負担
+       prefecture: 発送元の地域 
+       day_to_ship: 発送までの日数
+       user: ユーザー
+       price: 価格
