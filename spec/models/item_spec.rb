@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Item, type: :model do
   describe 'アイテム新規登録' do
     before do
-      @item =  FactoryBot.build(:item)
+      @item = FactoryBot.build(:item)
     end
 
     context 'ログインしているユーザーだけが、出品ページへ遷移できること' do
@@ -14,7 +14,7 @@ RSpec.describe Item, type: :model do
 
     context '出品ができないとき' do
      it '画像は1枚必須であること' do
-      @item.image = ""
+      @item.image = nil
       @item.valid?
         expect(@item.errors.full_messages).to include("出品画像を添付してください")
      end
