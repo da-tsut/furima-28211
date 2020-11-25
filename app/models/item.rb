@@ -12,8 +12,6 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefecture
   belongs_to_active_hash :day_to_ship
 
-  attr_accessor :name, :image, :introduction, :category_id, :item_condition_id, :postage_payer_id, :prefecture_id, :day_to_ship_id, :price
-
   validates :image, presence: { message: "を添付してください"}
   validates :name, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "を記入してください"}
   validates :introduction, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "を記入してください"}
