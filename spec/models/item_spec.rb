@@ -22,13 +22,13 @@ RSpec.describe Item, type: :model do
      it '商品名が必須であること' do
       @item.name = ""
       @item.valid?
-        expect(@item.errors.full_messages).to include("商品名を記入してください")
+        expect(@item.errors.full_messages).to include("商品名を入力してください", "商品名はひらがなカタカナ漢字を記入してください")
      end
 
      it '商品の説明が必須であること' do
       @item.introduction = ""
       @item.valid?
-        expect(@item.errors.full_messages).to include("商品の説明を記入してください")
+        expect(@item.errors.full_messages).to include("商品の説明を入力してください", "商品の説明はひらがなカタカナ漢字を記入してください")
      end
 
      it 'カテゴリーの情報が必須であること' do
@@ -82,6 +82,7 @@ RSpec.describe Item, type: :model do
      it "販売価格は半角数字のみ保存可能であること" do
        @item.price = "４００"
        @item.valid?
+       expect(@item.errors.full_messages).to include("価格は¥300以上で入力してください", "価格は¥9,999,999以下で入力してください")
      end   
    end
   end
