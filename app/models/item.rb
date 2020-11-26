@@ -19,5 +19,6 @@ class Item < ApplicationRecord
   #end
     validates :category_id,:item_condition_id,:postage_payer_id,:prefecture_id,:day_to_ship_id, numericality: { other_than: 1, message: "を選択してください" }
     validates :price, presence: { message: "を入力してください"}
-    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: "は¥300〜9,999,999の間で入力してください"}
+    validates :price, numericality: { greater_than_or_equal_to: 300, message: "は¥300以上で入力してください"}
+    validates :price, numericality: { less_than_or_equal_to: 9999999, message: "は¥9,999,999以下で入力してください"}
 end
