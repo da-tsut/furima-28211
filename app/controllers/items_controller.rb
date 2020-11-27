@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item, only: [:edit, :show]
-  #before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show]
 
 #  コメント：商品一覧表示機能で実装する 
 #  def index
