@@ -1,39 +1,42 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:edit, :show]
-  #before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index]
 
-  def index
-    # binding.pry
-  #  @items = Item.all
-  end
+#  コメント：商品一覧表示機能で実装する 
+#  def index
+#    @items = Item.includes(:user)
+#  end
 
   def new
     @item = Item.new
   end
-
+  
   def create
-    Item.create(item_params)
+    @item = Item.new(item_params)
+    if @item.valid? 
+       @item.save
+       redirect_to root_path
+    else
+       render :new
+    end
   end
 
-  def destroy
-    item = Item.find(params[:id])
-    item.destroy
-  end
 
-  def edit
-  end
+ # def destroy
+ #   item = Item.find(params[:id])
+ #   item.destroy
+ # end
 
-  def update
-    item = Item.find(params[:id])
-    item.update(tweet_params)
-  end
+ # def update
+ #   item = Item.find(params[:id])
+ #   item.update(item_params)
+ # end
 
-  def show
-  end
+ # def show
+ # end
 
   private
   def item_params
-    params.require(:item).permit(:name, :image, :text)
+    params.require(:item).permit(:image, :name, :introduction, :category_id, :item_condition_id, :postage_payer_id, :prefecture_id, :day_to_ship_id, :price).merge(user_id: current_user.id)
   end
 
   def set_item

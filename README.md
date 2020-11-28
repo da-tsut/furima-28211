@@ -70,7 +70,7 @@ Things you may want to cover:
 | price                 | integer | null: false                    |
 | item_condition_id     | integer | null: false                    |
 | postage_payer_id      | integer | null: false                    |
-| prefecture_code_id    | integer | null: false                    |
+| prefecture_id         | integer | null: false                    |
 | item_purchase_id      | integer | null: false                    |
 | price_preservation_id | integer | null: false                    |
 | user_id               | integer | null: false, foreign_key: true |
