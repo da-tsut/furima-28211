@@ -1,10 +1,9 @@
 class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index]
 
-#  コメント：商品一覧表示機能で実装する 
-#  def index
-#    @items = Item.includes(:user)
-#  end
+  def index
+    @items = Item.includes(:user).order("created_at DESC") 
+  end
 
   def new
     @item = Item.new
@@ -21,18 +20,20 @@ class ItemsController < ApplicationController
   end
 
 
- # def destroy
- #   item = Item.find(params[:id])
- #   item.destroy
- # end
+#  def destroy
+#    item = Item.find(params[:id])
+#   item.destroy
+#  end
 
- # def update
- #   item = Item.find(params[:id])
- #   item.update(item_params)
- # end
+#  def update
+#    item = Item.find(params[:id])
+#    item.update(item_params)
+#  end
 
- # def show
- # end
+ def show
+  @item = Item.new
+  @items = Item.includes(:user)
+end
 
   private
   def item_params
