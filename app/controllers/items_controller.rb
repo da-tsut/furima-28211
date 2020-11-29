@@ -30,10 +30,11 @@ class ItemsController < ApplicationController
 #    item.update(item_params)
 #  end
 
- def show
-  @item = Item.new
-  @items = Item.includes(:user)
-end
+#商品詳細の実装範囲
+# def show
+#  @item = Item.new
+#  @items = Item.includes(:user)
+#end
 
   private
   def item_params
