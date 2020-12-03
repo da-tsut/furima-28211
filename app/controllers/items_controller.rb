@@ -1,12 +1,17 @@
 class ItemsController < ApplicationController
-  before_action :move_to_index, except: [:index]
+  before_action :set_item, only: [:edit, :show]
+  before_action :move_to_index, except: [:index, :show]
 
   def index
     @items = Item.includes(:user).order("created_at DESC") 
   end
 
   def new
-    @item = Item.new
+    if user_signed_in?
+      @item = Item.new
+    else
+      redirect_to user_session_path(@item.id)
+    end
   end
   
   def create
@@ -20,21 +25,20 @@ class ItemsController < ApplicationController
   end
 
 
-#  def destroy
-#    item = Item.find(params[:id])
-#   item.destroy
-#  end
+ # def destroy
+ #   item = Item.find(params[:id])
+ #  item.destroy
+ # end
 
 #  def update
 #    item = Item.find(params[:id])
 #    item.update(item_params)
 #  end
 
-#商品詳細の実装範囲
-# def show
-#  @item = Item.new
-#  @items = Item.includes(:user)
-#end
+
+  def show
+   @item = Item.find(params[:id])
+  end
 
   private
   def item_params
@@ -45,9 +49,9 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def move_to_index
-    unless user_signed_in?
-      redirect_to action: :index
+      def move_to_index
+        unless user_signed_in?
+          redirect_to action: :index
     end
   end
 end
