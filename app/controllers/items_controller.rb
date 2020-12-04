@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:edit, :show]
   before_action :move_to_index, except: [:index, :show]
 
@@ -20,7 +21,7 @@ class ItemsController < ApplicationController
        @item.save
        redirect_to root_path
     else
-       before_action :authenticate_user!
+      render :new
     end
   end
 
