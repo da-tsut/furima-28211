@@ -32,8 +32,7 @@ class ItemsController < ApplicationController
 
   
   def destroy
-    if @item.valid?
-       @item.destroy
+    if @item.destroy
        redirect_to action: :index
     else
       render :new
