@@ -1,3 +1,7 @@
+<%= form_with  model: @order, id: 'charge-form', class: 'card-form',local: true do |f| %>
+<%= render 'layouts/error_messages', model: @order %>
+<% end %>
+
 <%= render "shared/second-header"%>
 
 <div class='transaction-contents'>

@@ -73,3 +73,5 @@ gem 'devise'
 gem 'pry-rails'
 
 gem 'rails-i18n'
+
+gem 'payjp'
