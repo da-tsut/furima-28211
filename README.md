@@ -39,26 +39,24 @@ Things you may want to cover:
 | birth_year_month_day | date       | null:false                            |
 
 ### Association
-- has_many :comments, dependent: :destroy
-- has_many :favorites, dependent: :destroy
-- has_many :item_purchases
-- has_many :items
+- has_one :address
+- has_one :order
 
 
-## sending_destinations table
+
+## address table
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | postal_code        | string     | null:false                     |
-| prefecture_code_id | integer    | null:false                     |
+| prefecture_id      | integer    | null:false                     |
 | city               | string     | null:false                     |
 | house_number       | string     | null:false                     |
 | building_name      | string     |                                |
 | phone_number       | string     | null:false                     |
-| item_purchase_id   | integer    | null:false                     |
+| order_id           | integer    | null:false                     |
 
 ### Association
-- belongs_to :item_purchase
-- belongs_to_active_hash :jp_prefecture
+- belongs_to :order
 
 
 
@@ -67,12 +65,12 @@ Things you may want to cover:
 | --------------------- | ------- | ------------------------------ |
 | name                  | string  | null: false                    |
 | introduction          | text    | null: false                    |
-| price                 | integer | null: false                    |
+| category_id           | integer | null: false                    |
 | item_condition_id     | integer | null: false                    |
 | postage_payer_id      | integer | null: false                    |
 | prefecture_id         | integer | null: false                    |
-| item_purchase_id      | integer | null: false                    |
-| price_preservation_id | integer | null: false                    |
+| day_to_ship_id        | integer | null: false                    |
+| price                 | integer | null: false                    |
 | user_id               | integer | null: false, foreign_key: true |
 
 
@@ -84,7 +82,7 @@ Things you may want to cover:
 - belongs_to_active_hash :jp_prefecture
 
 
-## items_purchase table
+## order table
 | Column  | Type    | Options                        |
 | ------- | ------- | ------------------------------ |
 | user_id | integer | null: false, foreign_key: true |
@@ -93,40 +91,5 @@ Things you may want to cover:
 ## Association
 - belongs_to :item
 - belongs_to :user
-- has_one : sending_destination
+- has_one :address
 
-
-
-## brands table
-| Column | Type   | Options |
-| ------ | ------ | ------- |
-| name   | string |         |
-
-### Association
-- has_many :items
-
-
-
-## favorites table
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| item   | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :user
-- belongs_to :item
-
-
-
-## comments table
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| comment    | text       | null: false                    |
-| user       | references | null: false, foreign_key: true |
-| item       | references | null: false, foreign_key: true |
-| created_at | timestamp  | null: false                    |
-
-### Association
-- belongs_to :user
-- belongs_to :item
