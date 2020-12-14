@@ -3,10 +3,10 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:index,:create]
 
   def index
-    if @item.order.present? 
+    if @item.order.present? || @item.user_id == current_user.id
       return redirect_to root_path
     end
-    @user_order = UserOrder.new
+       @user_order = UserOrder.new
   end
 
 
