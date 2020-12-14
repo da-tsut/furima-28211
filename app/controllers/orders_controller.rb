@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, only: [:index]
   before_action :set_order, only: [:index,:create]
 
   def index
