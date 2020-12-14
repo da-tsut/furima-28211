@@ -22,3 +22,9 @@ ja:
        day_to_ship_id: 発送までの日数
        user: ユーザー
        price: 価格
+
+     order:
+       Postal code: 郵便番号
+       Prefecture_id: 都道府県
+       City: 市区町村
+       Phone number: 電話番号
